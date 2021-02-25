@@ -1,0 +1,353 @@
+<Gerenciador>:
+    Login:
+        name: 'login'
+    Home:
+        name: 'home'
+    Global:
+        name: 'global'
+    Confirm:
+        name: 'confirm'
+    Home_Adm:
+        name: 'home_adm'
+
+#################################### Login ##################################################
+<Login>:
+    name: 'login'
+    orientation: 'vertical'
+
+    GridLayout:
+        cols: 1
+        Label:
+            font_size: '10sp'
+            text: "[color=111111][/color]"
+            size_hint_y: None
+            markup: True
+
+        Label:
+            size_hint_y: None
+            font_size: '48sp'
+            text: "[color=ff9999]Call[/color] [color=ff3333][sub]with[/sub][/color][color=3333ff][b] Control[sup][/sup][/b][/color]"
+            markup: True
+
+
+        GridLayout:
+            size_hint_y: None
+            cols: 1
+            TextInput:
+                write_tab: False
+                multiline: False
+                id: usuario
+                hint_text: "Usuário"
+            TextInput:
+                password_mask: "•"
+                multiline: False
+                id: senha
+                hint_text: "Senha"
+                password: True
+                write_tab: False
+                on_text_validate: root.on_enter()
+
+            BoxLayout:
+                text: "\n\n\n\n\n"
+
+        GridLayout:
+            size_hint_y: None
+            cols: 1
+            Label:
+                markup: True
+                id: validate
+                text: ""
+
+            Button:
+                size_hint_y: 1
+                text: 'Login'
+                on_press: root.trylogin()
+            Button:
+                text: 'Sair'
+                on_press: root.quit()
+        BoxLayout:
+            width: 100
+            Image:
+                source: 'metalsa.png'
+
+
+#################################### HOME ##################################################
+
+<Home>:
+    name: 'home'
+    BoxLayout:
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 30
+            spacing: 2
+            Button:
+                background_color: 2,1,0,1
+                color: 1,1,1,1
+                font_size: '40sp'
+                text: "SELECIONE A LINHA"
+
+            Button:
+                font_size: '25sp'
+                background_color: 3,3,0,1
+                color: 0,0,0,1
+                text: 'ENN1 - L1'
+                on_press: root.trocaenn1l1()
+
+
+
+            Button:
+                font_size: '25sp'
+                background_color: 3,3,0,1
+                color: 0,0,0,1
+                text: 'ENN1 - L2'
+                on_press: root.trocaenn1l2()
+            Button:
+                font_size: '25sp'
+                background_color: 3,3,0,1
+                color: 0,0,0,1
+                text: 'ENN2 - TUBOS'
+                on_press: root.trocaenn2tubos()
+            Button:
+                font_size: '25sp'
+                background_color: 3,3,0,1
+                color: 0,0,0,1
+                text: 'ENN2 - SOLDA'
+                on_press: root.trocaenn2solda()
+            Button:
+                font_size: '25sp'
+                background_color: 3,3,0,1
+                color: 0,0,0,1
+                text: 'ENN3 - PINTURA'
+                on_press: root.trocaenn3pintura()
+            Button:
+                font_size: '25sp'
+                background_color: 3,3,0,1
+                color: 0,0,0,1
+                text: 'ENN3 - JATO'
+                on_press: root.trocaenn3jato()
+            Button:
+                font_size: '25sp'
+                background_color: 3,3,0,1
+                color: 0,0,0,1
+                text: 'ENN4 - DAF'
+                on_press: root.trocaenn4daf()
+            Button:
+                font_size: '25sp'
+                background_color: 0,0,0,1
+                color: 1,1,1,1
+                text: 'LOG OUT'
+                on_press: root.logout()
+
+
+#################################### Global ##################################################
+
+
+<Global>
+    name: 'global'
+    BoxLayout:
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 30
+            spacing: 2
+
+            Button:
+                id: linha
+                text: ''
+                font_size: '30sp'
+                background_color: 3,3,0,1
+                color: 0,0,0,1
+                size_hint_y: .3
+
+            GridLayout:
+                cols: 2
+                Button:
+                    background_color: 3,3,0,1
+                    markup: True
+                    font_size: '25sp'
+                    color: 0,0,0,1
+                    text: 'ÁREA RESPONSÁVEL'
+                    size_hint_x: None
+                    width: 500
+                Button:
+                    font_size: '25sp'
+                    markup: True
+                    text: 'VOLTAR'
+                    color: 1,1,1,1
+                    background_color: 0,0,0,1
+                    on_press: root.manager.current = 'home'
+                Button:
+                    id: manutencao
+                    text: 'MANUTENÇÃO'
+                    size_hint_x: None
+                    width: 500
+                    background_color: 0,1,5,1
+                    color: 0,0,0,1
+                    font_size: '25sp'
+                Button:
+                    font_size: '25sp'
+                    text: 'CHAMAR'
+                    background_color: 2,1,0,1
+                    color: 0,0,0,1
+                    #on_release: root.puxalinha(), root.manutencao()
+                    on_release: root.manutencao()
+
+
+
+                Button:
+                    id: qualitygate
+                    text: 'QUALITY GATE'
+                    size_hint_x: None
+                    width: 500
+                    background_color: 0,3,0,2
+                    color: 0,0,0,1
+                    font_size: '25sp'
+                Button:
+                    font_size: '25sp'
+                    text: 'CHAMAR'
+                    background_color: 2,1,0,1
+                    color: 0,0,0,1
+                    #on_release: root.puxalinha(), root.qualitygate()
+                    on_release: root.qualitygate()
+                Button:
+                    id: logistica
+                    text: 'LOGÍSTICA'
+                    size_hint_x: None
+                    width: 500
+                    background_color: 3,2,0,1
+                    color: 0,0,0,1
+                    font_size: '25sp'
+                Button:
+                    font_size: '25sp'
+                    text: 'CHAMAR'
+                    background_color: 2,1,0,1
+                    color: 0,0,0,1
+                    #on_release: root.puxalinha(), root.logistica()
+                    on_release: root.logistica()
+                Button:
+                    id: engprocessos
+                    text: 'ENGENHARIA DE PROCESSOS'
+                    size_hint_x: None
+                    width: 500
+                    background_color: 0,2,5,1
+                    color: 0,0,0,1
+                    font_size: '25sp'
+                Button:
+                    font_size: '25sp'
+                    text: 'CHAMAR'
+                    background_color: 2,1,0,1
+                    color: 0,0,0,1
+                    #on_release: root.puxalinha(), root.engprocessos()
+                    on_release: root.engprocessos()
+
+##################################### Tela de confirmação ######################################################
+
+<Confirm>
+    BoxLayout:
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 30
+            spacing: 3
+
+            Button:
+                font_size: '40sp'
+                background_color: 0,0,2,1
+                size_hint_y: None
+                text: 'Deseja prosseguir?'
+            GridLayout:
+                cols: 2
+                Button:
+                    font_size: '20sp'
+                    background_color: 0,2,0,1
+                    size_hint_x: 2
+                    size_hint_y: None
+                    text: 'REGISTRAR CHAMADO'
+                    on_release: root.abrirchamado()
+                Button:
+                    font_size: '20sp'
+                    color: 1,1,1,1
+                    background_color: 0,0,0,1
+                    size_hint_x: 2
+                    size_hint_y: None
+                    text: 'VOLTAR'
+                    on_release:root.cancelar()
+                Button:
+                    id: confirmlinha
+                    font_size: '25sp'
+                    background_color: 3,3,0,1
+                    color: 0,0,0,1
+                    text: ''
+                Button:
+                    id: confirmarea
+                    font_size: '25sp'
+                    background_color: 3,3,0,1
+                    color: 0,0,0,1
+                    text: ''
+            GridLayout:
+                cols: 1
+                Label:
+                    id: status
+                    font_size: '20sp'
+                    color: '#10001'
+                    text: ''
+                    markup: True
+                    bold: True
+                Button:
+                    id: confirmuser
+                    font_size: '25sp'
+                    background_color: 3,3,0,1
+                    color: 0,0,0,1
+                    text: ''
+
+##################################### Tela ADM ######################################################
+
+<Home_Adm>
+    BoxLayout:
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 30
+            spacing: 3
+
+            Button:
+                font_size: '40sp'
+                background_color: 0,0,2,1
+                size_hint_y: None
+                text: 'ENCERRAMENTO DE ORDENS'
+            GridLayout:
+                cols: 2
+                Button:
+                    font_size: '20sp'
+                    background_color: 0,2,0,1
+                    size_hint_x: 2
+                    size_hint_y: None
+                    text: 'ENCERRAR CHAMADO'
+                    on_release: root.encerrar()
+                Button:
+                    font_size: '20sp'
+                    color: 1,1,1,1
+                    background_color: 0,0,0,1
+                    size_hint_x: 2
+                    size_hint_y: None
+                    text: 'LOG OUT'
+                    on_release: root.logout()
+            GridLayout:
+                cols: 1
+                Label:
+                    id: end_status
+                    font_size: '20sp'
+                    color: '#10001'
+                    text: ''
+                    markup: True
+                    bold: True
+                TextInput:
+                    multiline: False
+                    id: ticket
+                    hint_text: "#ID"
+                    size_hint_y: .5
+                    size_hint_x: None
+                Button:
+                    id: confirm_end_user
+                    font_size: '25sp'
+                    background_color: 3,3,0,1
+                    color: 0,0,0,1
+                    text: ''
+
