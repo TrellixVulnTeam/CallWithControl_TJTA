@@ -15,7 +15,7 @@ class Login(Screen):
 
     def trylogin(self):
 
-        path = r'C:\Users\guiso\OneDrive - Reverse IT\OneDrive\Call With Control\sqlite\teste.db'
+        path = r'C:\Users\guiso\PycharmProjects\callwithcontrol\cwc_database.db'
         validate = ()
         conn = sqlite3.connect(path)
         cursor = conn.cursor()
@@ -122,7 +122,7 @@ class Confirm(Screen):
     def abrirchamado(self):
         from datetime import date
         from datetime import datetime
-        path = r'C:\Users\guiso\OneDrive - Reverse IT\OneDrive\Call With Control\sqlite\teste.db'
+        path = r'C:\Users\guiso\PycharmProjects\callwithcontrol\cwc_database.db'
         cont = []
         hora = str(datetime.now())
         hora = str(hora[11:19])
@@ -167,7 +167,7 @@ class Home_Adm(Screen):
     def encerrar(self):
         from datetime import date
         from datetime import datetime
-        path = r'C:\Users\guiso\OneDrive - Reverse IT\OneDrive\Call With Control\sqlite\teste.db'
+        path = r'C:\Users\guiso\PycharmProjects\callwithcontrol\cwc_database.db'
         conn = sqlite3.connect(path)
         cursor = conn.cursor()
         val = 1
@@ -213,7 +213,7 @@ class Home_Adm(Screen):
                         cursor.execute(sqlite_insert_with_param, tupla)
                         conn.commit()
                     except:
-                        self.ids.end_status.text = (f'[color=ff2001]Data Base Error. Contact Support[/color]')
+                        self.ids.end_status.text = (f'[color=ff2001]Database Error. Contact Support[/color]')
                     finally:
                         self.ids.end_status.text = (f'[color=ff2001]Ticket #{ticket} encerrado com sucesso[/color]')
                         cursor.close()
