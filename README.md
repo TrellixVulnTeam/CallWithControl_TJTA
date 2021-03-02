@@ -1,7 +1,7 @@
 # CallWithControl
 
 Objetivo:
-Identificar o tempo de paradas de linha de produção em relação ao tempo de resposta do setor responsável com a solução do problema. Basicamente, o projeto visa resolver as divergências de informações entre o tempo em que a linha de produção ficou inoperante e o tempo em que o setor responsável resolveu o problema, pois muitas vezes as informações de justificativa de parada de linha da produção não coincidiam com as informações do setor responsável. 
+Identificar o tempo de paradas de linha de produção em relação ao tempo de resposta do setor responsável com a solução do problema. Basicamente, a aplicação visa resolver as divergências de informações entre o tempo em que a linha de produção ficou inoperante e o tempo em que o setor responsável resolveu o problema, pois muitas vezes as informações de justificativa de parada de linha da produção não coincidiam com as informações do setor responsável. 
 
 
 Requisitos:
